@@ -1,7 +1,11 @@
 package com.vade.application.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -46,6 +50,15 @@ public class TrainerController {
         // return to hte same page
         // System.out.println(c);
         return "redirect:/addl";
+    }
+
+    @GetMapping("/viewc")
+    public String viewcourses(Model model) {
+        List<Course> cList = tService.getAllCourse();
+        System.out.println(cList);
+        model.addAttribute("courseList", cList);
+
+        return "showCourse";
     }
 
 }

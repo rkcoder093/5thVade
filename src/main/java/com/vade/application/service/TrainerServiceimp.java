@@ -1,5 +1,7 @@
 package com.vade.application.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,14 @@ public class TrainerServiceimp implements TrainerService{
         lRepo.save(l);
         System.out.println("lessons added succesfully");
     }
+
+    @Override
+    public List<Course> getAllCourse() {
+        // TODO Auto-generated method stub
+        List<Course> getCourses = cRepo.findAll();
+        return getCourses;
+    }
+
 
     
 

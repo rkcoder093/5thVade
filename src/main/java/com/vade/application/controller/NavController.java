@@ -10,36 +10,37 @@ public class NavController {
 	public String index() {
 		return "index";
 	}
-	
+
 	@GetMapping("/signin")
 	public String login() {
 		return "login";
 	}
-	
+
 	@GetMapping("/signup")
 	public String register() {
 		return "register";
 	}
 
-		@GetMapping("/student")
+	@GetMapping("/student")
 	public String studentLogin() {
 		return "student";
 	}
 
-
-		@GetMapping("/trainer")
+	@GetMapping("/trainer")
 	public String trainerLogin() {
 		return "trainer";
 	}
-
 
 	@GetMapping("/addc")
 	public String addCourse() {
 		return "createCourse";
 	}
-		@GetMapping("/addl")
+
+	@GetMapping("/addl")
 	public String addLesson() {
 		return "addLesson";
 	}
-	
+
+
+
 }
