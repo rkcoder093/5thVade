@@ -1,11 +1,18 @@
 package com.vade.application.controller;
 
+import java.util.List;
+
+import javax.xml.stream.events.Comment;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.vade.application.entity.Comments;
 import com.vade.application.entity.Users;
+import com.vade.application.service.CommentService;
 import com.vade.application.service.UserServices;
 
 @Controller
@@ -13,6 +20,9 @@ public class UserController {
 
 	@Autowired
 	UserServices uService;
+
+	@Autowired
+	CommentService cService;
 
 	// this method is for register the user
 	@PostMapping("/create")
@@ -60,5 +70,16 @@ public class UserController {
 		}
 
 	}
+
+	@PostMapping("/addComment")
+    public String addCOmment(@RequestParam("comment") String comment, Model model){
+        Comments c = new Comments();
+		c.setComment(comment);
+		cService.saveComment(c);
+		List<Comments> commentList =cService.commentList();
+		model.addAttribute("comments", commentList);
+		System.out.println(comment);
+		return "redirect:/demoLesson";
+    }
 
 }

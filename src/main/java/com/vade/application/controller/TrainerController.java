@@ -60,5 +60,4 @@ public class TrainerController {
 
         return "showCourse";
     }
-
 }

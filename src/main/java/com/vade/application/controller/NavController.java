@@ -41,7 +41,14 @@ public class NavController {
 		return "addLesson";
 	}
 
-	
+	@GetMapping("/demoLesson")
+	public String demoLesson() {
+		return "demoLesson";
+	}
 
+	// @GetMapping("/mylesson")
+	// public String myLesson() {
+	// 	return "mylessons";
+	// }
 
 }
